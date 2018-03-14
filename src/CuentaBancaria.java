@@ -73,7 +73,10 @@ public class CuentaBancaria {
             MenuPrincipal();    
         }
         if (opciones == 2){
-            return null;   
+      
+        } else{
+            System.out.println("Opción incorrecta");
+            retornoMenu();
         }
     }
 
@@ -95,18 +98,22 @@ public class CuentaBancaria {
 
                 if (opcion == 1) {                    
                     retirar();
+                    retornoMenu();
                 }
                 
                 if (opcion == 2){
-                    consignar();    
+                    consignar(); 
+                    retornoMenu();
                 }
                 
                 if (opcion == 3){                    
                     cambiarClave();
+                    retornoMenu();
                 }
                 
                 if (opcion == 4){
                     consultarSaldo();
+                    retornoMenu();
                 }
 
             } else {
