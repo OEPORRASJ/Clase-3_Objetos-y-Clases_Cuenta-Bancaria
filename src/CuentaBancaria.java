@@ -26,22 +26,34 @@ public class CuentaBancaria {
     }
 
     //Métodos
-    public void retirar(int monto) {
+    public void retirar() {
+        System.out.println("Cuánto desea retirar?");
+        Scanner lector = new Scanner(System.in);
+        double monto = lector.nextDouble();
+        lector.close();
 
         this.saldo = saldo - monto;
         System.out.println("Su nuevo saldo es: " + saldo);
 
     }
 
-    public void consignar(int monto) {
+    public void consignar() {
+        System.out.println("Cuánto desea consignar");
+        Scanner lector = new Scanner(System.in);
+        double monto = lector.nextDouble();
+        lector.close();
  
         this.saldo = saldo + monto;
         System.out.println("Su nuevo saldo es: " + saldo);
 
     }
 
-    public void cambiarClave(int nuevaClave) {
-       
+    public void cambiarClave() {
+        System.out.println("Escriba su nueva clave:");
+        Scanner lector = new Scanner(System.in);
+        int nuevaClave = lector.nextInt();
+        lector.close();
+                
         this.clave = nuevaClave;
         System.out.println("Clave cambiada con éxito");
 
@@ -50,6 +62,19 @@ public class CuentaBancaria {
     public void consultarSaldo() {
         System.out.println("Su saldo es: " + saldo);
 
+    }
+    
+    public void retornoMenu(){
+        System.out.println("Desea volver al Menu Principal? \n 1.Sí. \n 2.No. ");
+        Scanner lector = new Scanner(System.in);
+        int opciones = lector.nextInt();
+        lector.close();
+        if (opciones == 1){
+            MenuPrincipal();    
+        }
+        if (opciones == 2){
+            return null;   
+        }
     }
 
     public void MenuPrincipal() {
@@ -68,29 +93,20 @@ public class CuentaBancaria {
                 int opcion = lector.nextInt();
                 
 
-                if (opcion == 1) {
-                    System.out.println("¿Cuánto dinero deseas retirar?");
-                   
-                    int cash = lector.nextInt();
-                    retirar(cash);
+                if (opcion == 1) {                    
+                    retirar();
                 }
                 
                 if (opcion == 2){
-                    System.out.println("¿Cuánto dinero deseas consignar?");
-                    
-                    int cash = lector.nextInt();
-                    consignar(cash);    
+                    consignar();    
                 }
                 
-                if (opcion == 3){
-                    System.out.println("Digite su nueva clave: ");
-                    
-                    int nuevaClave = lector.nextInt();
-                    cambiarClave(nuevaClave);
+                if (opcion == 3){                    
+                    cambiarClave();
                 }
                 
                 if (opcion == 4){
-                    System.out.println("Su saldo es: " + saldo);
+                    consultarSaldo();
                 }
 
             } else {
